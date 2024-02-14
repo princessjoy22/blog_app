@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController # Articles plural
     end
 
     def new
-        # @article = Article.new
+        @article = Article.new
     end
 
     def create
@@ -20,14 +20,14 @@ class ArticlesController < ApplicationController # Articles plural
         # @article.writer_name = params[:writer_name]
 
         if @article.save 
-            redirect_to articles_path
+            redirect_to articles_path, notice: "Article successfully created."
         else
             render :new
         end
     end
 
     def edit
-         @article = Article.find(params[:id])
+        @article = Article.find(params[:id])
     end
 
     def update
@@ -50,7 +50,7 @@ class ArticlesController < ApplicationController # Articles plural
     private
 
     def article_params
-        params.require(:article).permit(:title, :body)
+        params.require(:article).permit(:title, :body, :writer_name)
     end
 
     
