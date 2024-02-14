@@ -1,0 +1,9 @@
+<h2><%= @article.title %></h2>
+<h4>Written by: <%= @article.writer_name %></h4>
+<p><%= @article.body %></p>
+
+<div>
+    <%= link_to "Edit Article", edit_article_path %> | 
+    <%= link_to "Back to Articles", articles_path %> |
+    <%= link_to 'Delete', delete_article_path(@article), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+</div>
